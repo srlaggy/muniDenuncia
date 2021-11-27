@@ -3,7 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Start from "./screens/Start";
 import Actions from "./screens/Actions";
-//import Functions from "./screens/Functions";
+import Functions from "./screens/Functions";
+import Form from "./screens/Form";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +14,8 @@ export default function App() {
             <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Home" component={Start} options={{headerShown: false}}/>
                 <Stack.Screen name="Actions" component={Actions} options={{headerShown: false}}/>
-                {/* <Stack.Screen name="Functions" component={Functions}/> */}
+                <Stack.Screen name="Functions" component={Functions}/>
+                <Stack.Screen name="Form" component={Form}/>
             </Stack.Navigator>
         </NavigationContainer>
         // <Start/>
