@@ -1,15 +1,23 @@
 import React from "react";
 import {Text, SafeAreaView, StyleSheet} from "react-native";
-import { ActionButton } from "../components/Buttons";
+import { Button, Appbar } from 'react-native-paper';
 
 const Actions = ({navigation}) => {
     return (
         <SafeAreaView style={styles.fondo}>
+            <Appbar.Header style={{backgroundColor: "#BF7B41"}}>
+                <Appbar.BackAction onPress={() => navigation.navigate('Home')} />
+                <Appbar.Content title="Acciones"/>
+            </Appbar.Header>
             <Text style={styles.title}>
                 Elija una acción   
             </Text>
-            <ActionButton onPress={() => navigation.navigate('Functions')} opcion="Ingresa Problema"/>
-            <ActionButton onPress={() => navigation.navigate('Home')} opcion="Mis reportes"/>
+            <Button style={styles.ActBoton} mode="contained" onPress={() => navigation.navigate('Functions')}>
+                Ingresa Problema
+            </Button>
+            <Button style={styles.ActBoton} mode="contained" onPress={() => alert('Disponible en la próxima implementación')}>
+                Mis reportes
+            </Button>
         </SafeAreaView>
     );
 };
@@ -25,6 +33,15 @@ const styles = StyleSheet.create({
         textAlign: "center",
         marginTop: "25%",
         marginBottom: "15%",
+    },
+    ActBoton: {
+        alignSelf: 'center',
+        borderRadius: 10,
+        paddingVertical: 15,
+        width: '65%',
+        backgroundColor: "#BF7B41",
+        marginVertical: 10,
+
     },
 });
 

@@ -1,6 +1,6 @@
 import React from "react";
 import {Text, View, StyleSheet} from "react-native";
-import { Button } from 'react-native-paper';
+import { Button, Avatar } from 'react-native-paper';
 
 const Start = ({navigation}) => {
     return (
@@ -11,6 +11,7 @@ const Start = ({navigation}) => {
             <Text style={styles.subtitle}>
                 Bienvenida
             </Text>
+            <Avatar.Image size={150} source={require('../assets/marta.png')} />
             <Text style={styles.subtitle}>
                 Marta Muñoz
             </Text>
