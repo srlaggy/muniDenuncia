@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text, Card } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
-import { Button, Image } from 'react-native-paper';
+import { Button} from 'react-native-paper';
 
 const Function = ({navigation}) => {
     const [items, setItems] = React.useState([
@@ -33,12 +33,13 @@ const Function = ({navigation}) => {
                 // fixed
                 spacing={10}
                 renderItem={({ item }) => (
-                    <Button style={styles.itemContainer} onPress={() => navigation.navigate('Form')}>
-                        {/* <Image size={80} source={item.icon} /> */}
+                    <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('Form')}>
                         <View style={styles.itemContainer2}>
+                            {/* <Image size={80} source={require(item.icon)} /> */}
+                            <Image size={80} source={require("../icons/security3.png")} />
                             <Text style={styles.itemName}>{item.name}</Text>
                         </View>
-                    </Button>
+                    </TouchableOpacity>
                 )}
             />
             
