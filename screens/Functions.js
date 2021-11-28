@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import { Button, Appbar } from 'react-native-paper';
 
 const Function = ({navigation}) => {
     const [items, setItems] = React.useState([
-        { name: 'Emergencia de Seguridad', code: '#E6AF80', icon: require("../icons/security3.png")},
+        { name: 'Emergencia de Seguridad', code: '#E6AF80', icon: require("../icons/security.png")},
         { name: 'Corte de Luz', code: '#E6AF80', icon: require("../icons/trafficlight.png")},
         { name: 'Actividad Sospechosa', code: '#E6AF80', icon: require("../icons/thief.png")},
         { name: 'Aviso Comunitario', code: '#E6AF80', icon: require("../icons/campaign.png")},
@@ -13,15 +13,15 @@ const Function = ({navigation}) => {
 
     return (
         <View style={styles.fondo}>
-            <Appbar.Header style={{backgroundColor: "#024772"}}>
+            <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
                 <Appbar.BackAction onPress={() => navigation.navigate('Actions')} />
-                <Appbar.Content title="Funciones"/>
+                {/* <Appbar.Content title="Reportes"/> */}
             </Appbar.Header>
 
             {/* WIZARD */}
-            <Button mode="contained" onPress={() => navigation.navigate('Actions')}>
+            {/* <Button mode="contained" onPress={() => navigation.navigate('Actions')}>
                 WIZARD
-            </Button>
+            </Button> */}
 
             {/* TÍTULO REPORTE */}
             <Text style={styles.subtitle}>
@@ -37,7 +37,7 @@ const Function = ({navigation}) => {
                 // fixed
                 spacing={10}
                 renderItem={({ item }) => (
-                    <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('Form')}>
+                    <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('Form', {itemFunction: item.name, itemImage: item.icon})}>
                         <View style={styles.itemContainerImage}>
                             <Image source={item.icon} />
                         </View>
@@ -56,10 +56,9 @@ const styles = StyleSheet.create({
     subtitle: {
         fontSize: 25,
         color: "black",
-        textAlign: "left",
+        textAlign: "center",
         marginBottom: "5%",
         marginTop: "5%",
-        marginLeft: "5%",
     },
     fondo: {
         backgroundColor: "#C4E5F5",

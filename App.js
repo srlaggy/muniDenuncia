@@ -18,6 +18,5 @@ export default function App() {
                 <Stack.Screen name="Form" component={Form} options={{headerShown: false}}/>
             </Stack.Navigator>
         </NavigationContainer>
-        // <Start/>
     );
 }

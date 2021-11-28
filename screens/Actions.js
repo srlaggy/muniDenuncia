@@ -1,13 +1,12 @@
 import React from "react";
-import {Text, SafeAreaView, StyleSheet} from "react-native";
+import {Text, View, StyleSheet} from "react-native";
 import { Button, Appbar } from 'react-native-paper';
 
 const Actions = ({navigation}) => {
     return (
-        <SafeAreaView style={styles.fondo}>
-            <Appbar.Header style={{backgroundColor: "#024772"}}>
+        <View style={styles.fondo}>
+            <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
                 <Appbar.BackAction onPress={() => navigation.navigate('Home')} />
-                <Appbar.Content title="Acciones"/>
             </Appbar.Header>
             <Text style={styles.title}>
                 Elija una acción   
@@ -18,7 +17,7 @@ const Actions = ({navigation}) => {
             <Button style={styles.ActBoton} mode="contained" onPress={() => alert('Disponible en la próxima implementación')}>
                 Mis reportes
             </Button>
-        </SafeAreaView>
+        </View>
     );
 };
 
