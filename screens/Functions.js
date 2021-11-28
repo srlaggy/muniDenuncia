@@ -33,9 +33,11 @@ const Function = ({navigation}) => {
                 // fixed
                 spacing={10}
                 renderItem={({ item }) => (
-                    <Button style={[styles.itemContainer, { backgroundColor: item.code }]} mode="contained" onPress={() => navigation.navigate('Form')}>
+                    <Button style={styles.itemContainer} onPress={() => navigation.navigate('Form')}>
                         {/* <Image size={80} source={item.icon} /> */}
-                        <Text style={styles.itemName}>{item.name}</Text>
+                        <View style={styles.itemContainer2}>
+                            <Text style={styles.itemName}>{item.name}</Text>
+                        </View>
                     </Button>
                 )}
             />
@@ -83,14 +85,20 @@ const styles = StyleSheet.create({
     itemContainer: {
         justifyContent: 'flex-end',
         borderRadius: 5,
-        padding: 10,
+        height: 150,
+        backgroundColor: '#E6AF80',
+    },
+    itemContainer2: {
+        justifyContent: 'flex-end',
         height: 150,
         alignItems: "center",
+        padding: "7%"
     },
     itemName: {
         fontSize: 16,
         color: '#00212D',
         fontWeight: '600',
+        textAlign: 'center',
     },
     itemCode: {
         fontWeight: '600',
