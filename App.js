@@ -14,8 +14,8 @@ export default function App() {
             <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Home" component={Start} options={{headerShown: false}}/>
                 <Stack.Screen name="Actions" component={Actions} options={{headerShown: false}}/>
-                <Stack.Screen name="Functions" component={Functions}/>
-                <Stack.Screen name="Form" component={Form}/>
+                <Stack.Screen name="Functions" component={Functions} options={{headerShown: false}}/>
+                <Stack.Screen name="Form" component={Form} options={{headerShown: false}}/>
             </Stack.Navigator>
         </NavigationContainer>
         // <Start/>

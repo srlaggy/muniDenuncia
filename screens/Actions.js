@@ -5,7 +5,7 @@ import { Button, Appbar } from 'react-native-paper';
 const Actions = ({navigation}) => {
     return (
         <SafeAreaView style={styles.fondo}>
-            <Appbar.Header style={{backgroundColor: "#BF7B41"}}>
+            <Appbar.Header style={{backgroundColor: "#024772"}}>
                 <Appbar.BackAction onPress={() => navigation.navigate('Home')} />
                 <Appbar.Content title="Acciones"/>
             </Appbar.Header>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingVertical: 15,
         width: '65%',
-        backgroundColor: "#BF7B41",
+        backgroundColor: "#E6AF80",
         marginVertical: 10,
 
     },

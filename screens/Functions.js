@@ -1,21 +1,25 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
-import { Button} from 'react-native-paper';
+import { Button, Appbar } from 'react-native-paper';
 
 const Function = ({navigation}) => {
     const [items, setItems] = React.useState([
-        { name: 'Emergencia de Seguridad', code: '#E6AF80', icon: "../icons/security3.png"},
-        { name: 'Corte de Luz', code: '#E6AF80', icon: "../icons/security3.png"}, /* #2ecc71 */
-        { name: 'Actividad Sospechosa', code: '#E6AF80', icon: "../icons/security3.png"}, /**#3498db */
-        { name: 'Aviso Comunitario', code: '#E6AF80', icon: "../icons/security3.png"}, /**#9b59b6 */
+        { name: 'Emergencia de Seguridad', code: '#E6AF80', icon: require("../icons/security3.png")},
+        { name: 'Corte de Luz', code: '#E6AF80', icon: require("../icons/trafficlight.png")},
+        { name: 'Actividad Sospechosa', code: '#E6AF80', icon: require("../icons/thief.png")},
+        { name: 'Aviso Comunitario', code: '#E6AF80', icon: require("../icons/campaign.png")},
     ]);
 
     return (
         <View style={styles.fondo}>
+            <Appbar.Header style={{backgroundColor: "#024772"}}>
+                <Appbar.BackAction onPress={() => navigation.navigate('Actions')} />
+                <Appbar.Content title="Funciones"/>
+            </Appbar.Header>
 
             {/* WIZARD */}
-            <Button style={styles.boton} mode="contained" onPress={() => navigation.navigate('Actions')}>
+            <Button mode="contained" onPress={() => navigation.navigate('Actions')}>
                 WIZARD
             </Button>
 
@@ -34,15 +38,16 @@ const Function = ({navigation}) => {
                 spacing={10}
                 renderItem={({ item }) => (
                     <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('Form')}>
-                        <View style={styles.itemContainer2}>
-                            {/* <Image size={80} source={require(item.icon)} /> */}
-                            <Image size={80} source={require("../icons/security3.png")} />
+                        <View style={styles.itemContainerImage}>
+                            <Image source={item.icon} />
+                        </View>
+                        <View style={styles.itemContainerFunction}>
                             <Text style={styles.itemName}>{item.name}</Text>
                         </View>
                     </TouchableOpacity>
                 )}
             />
-            
+
         </View>
         );
     }
@@ -61,12 +66,6 @@ const styles = StyleSheet.create({
         flex: 1,
         // alignItems: "center",
     },
-    boton: {
-        width: "80%",
-        backgroundColor: "#024772",
-        marginTop: "5%",
-        // align: "center",
-    },
     container_gris: {
         flex: 1,
         flexDirection: 'column',
@@ -83,28 +82,34 @@ const styles = StyleSheet.create({
         marginTop: 10,
         flex: 1,
     },
+    ////////////////////////
     itemContainer: {
         justifyContent: 'flex-end',
         borderRadius: 5,
         height: 150,
         backgroundColor: '#E6AF80',
+        padding: 5,
     },
     itemContainer2: {
         justifyContent: 'flex-end',
-        height: 150,
+        height: "100%",
         alignItems: "center",
-        padding: "7%"
     },
+    itemContainerImage: {
+        justifyContent: 'flex-end',
+        height: "65%",
+        alignItems: "center",
+    },
+    itemContainerFunction: {
+        marginTop: "5%",
+        height: "35%",
+    },
+    ////////////////////////
     itemName: {
         fontSize: 16,
         color: '#00212D',
         fontWeight: '600',
         textAlign: 'center',
-    },
-    itemCode: {
-        fontWeight: '600',
-        fontSize: 12,
-        color: '#fff',
     },
 });
 

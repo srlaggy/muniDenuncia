@@ -42,9 +42,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     boton: {
-        width: "40%",
-        backgroundColor: "#BF7B41",
-        marginTop: "40%",
+        width: "50%",
+        height: "7%",
+        justifyContent: "center",
+        backgroundColor: "#E6AF80",
+        marginTop: "35%",
     },
 });
 
