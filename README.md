@@ -1,13 +1,13 @@
 # muniDenuncias
-Vistas basicas de App desarrollada en react Native para el proyecto del curso de interfaces usuarias
+Aplicación con vistas básicas desarrollada en react Native para el proyecto del curso de interfaces usuarias.
 
 ## Integrantes:
-- Raul Cruz
+- Raúl Cruz
 - Darinka Quiñones
 - Ignacio Ulloa
 
 ## Dependencias:
-Se necesita de `yarn`, `npm` para poder probar el proyecto.
+Se necesita de `yarn` y `npm` para probar el proyecto.
 - `npm install --global expo-cli`
 - `expo install react-native-screens react-native-safe-area-context`
 - `yarn add @react-navigation/native`
