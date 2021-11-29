@@ -22,3 +22,6 @@ Nota: Si cuenta solamente con `yarn` o `npm`, puede transformar los comandos al 
 - Si cuenta con un emulador de android (se recomienda testear con AVG de android studio), presionar `a` en la terminal para abrir el proyecto en el emulador.
 - Si cuenta con un dispositivo móvil `IOS`, instale la aplicación `Expo Go` de la Appstore y luego escaneé el código QR que se observa en la terminal.
 - Si cuenta con un dispositivo móvil `Android`, instale la aplicación `Expo Go` de la Play Store, abra la app, presione en la opción de `Scan QR Code` y finalmente escaneé el código QR que se observa en la terminal.
+
+## Vista de funcionalidad
+![test](./assets/test.gif)
