@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Steps from '../components/wizard/Steps';
+import StepsState from '../components/wizard/context/stepsState';
+import StepsContext from '../components/wizard/context/stepsContext';
+import Form from "./Form";
 import { StyleSheet, SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import { Button, Appbar } from 'react-native-paper';
@@ -19,9 +23,9 @@ const Function = ({navigation}) => {
             </Appbar.Header>
 
             {/* WIZARD */}
-            {/* <Button mode="contained" onPress={() => navigation.navigate('Actions')}>
-                WIZARD
-            </Button> */}
+            <StepsState>
+                <Steps routes={routes} num={1}/>
+            </StepsState>
 
             {/* TÍTULO REPORTE */}
             <Text style={styles.subtitle}>
@@ -33,11 +37,13 @@ const Function = ({navigation}) => {
                 itemDimension={130}
                 data={items}
                 style={styles.gridView}
-                // staticDimension={300}
-                // fixed
                 spacing={10}
                 renderItem={({ item }) => (
-                    <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('Form', {itemFunction: item.name, itemImage: item.icon})}>
+                    <TouchableOpacity style={styles.itemContainer}
+                        onPress={() => {
+                            navigation.navigate('Form', {itemFunction: item.name, itemImage: item.icon})
+                        }}
+                    >
                         <View style={styles.itemContainerImage}>
                             <Image source={item.icon} />
                         </View>
@@ -47,14 +53,25 @@ const Function = ({navigation}) => {
                     </TouchableOpacity>
                 )}
             />
-
         </View>
-        );
-    }
+    );
+}
+
+const routes = [
+    {
+        title: 'Categoria',
+    },
+    {
+        title: 'Descripcion',
+    },
+    {
+        title: 'Confirmacion',
+    },
+];
 
 const styles = StyleSheet.create({
     subtitle: {
-        fontSize: 25,
+        fontSize: 28,
         color: "black",
         textAlign: "center",
         marginBottom: "5%",
@@ -65,18 +82,6 @@ const styles = StyleSheet.create({
         flex: 1,
         // alignItems: "center",
     },
-    container_gris: {
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: "#B1A5A5",
-        opacity: 0.5,
-        marginTop: "5%",
-        marginBottom: "10%",
-        marginLeft: "5%",
-        alignItems: "center",
-        marginRight: "5%",
-    },
-    /** */
     gridView: {
         marginTop: 10,
         flex: 1,

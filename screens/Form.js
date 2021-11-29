@@ -23,9 +23,9 @@ const Form = ({navigation, route}) => {
                 Describir reporte  
             </Text>
             
-            <View style={{flexDirection:'row'}}>
-                <Image style={{marginHorizontal: '10%',marginBottom: "5%",}} source={itemImage}/>
-                <Text style={{marginHorizontal: '10%',marginBottom: "5%", fontSize: 15}}>{itemFunction}</Text>
+            <View style={styles.titleImage}>
+                <Image style={{margin: "5%", marginLeft: '10%', marginRight: "2%"}} source={itemImage}/>
+                <Text style={{fontSize: 19, margin: 0}}>{itemFunction}</Text>
             </View>
 
             <TextInput 
@@ -73,11 +73,15 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     title: {
-        fontSize: 36,
+        fontSize: 28,
         color: "black",
         textAlign: "center",
-        marginTop: "15%",
-        marginBottom: "15%",
+        marginTop: "5%",
+        marginBottom: "2%",
+    },
+    titleImage: {
+        alignItems: "center",
+        flexDirection: "row",
     },
     ActBoton: {
         alignSelf: 'flex-end',
@@ -87,10 +91,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#024772",
         marginRight: '10%',
         marginVertical: 10,
-
     },
     emergencia: {
         padding: 10,
+        fontSize: 17,
         marginHorizontal: '10%',
         height: '10%',
         backgroundColor: '#FFFF',
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
         borderColor: "#BFBFBF",
     },
     emergencia2: {
-        height: "30%",
+        height: "25%",
     }
 });
 
