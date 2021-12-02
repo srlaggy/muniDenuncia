@@ -4,7 +4,6 @@ import { Button, Appbar } from 'react-native-paper';
 import Steps from '../components/wizard/Steps';
 import StepsState from '../components/wizard/context/stepsState';
 import AwesomeAlert from 'react-native-awesome-alerts';
-import { setStatusBarNetworkActivityIndicatorVisible } from "expo-status-bar";
 
 const Form2 = ({navigation, route}) => {
     const { itemFunction2, itemImage2, titulo2, descripcion2} = route.params;

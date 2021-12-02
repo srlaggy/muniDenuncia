@@ -40,7 +40,6 @@ const Form = ({navigation, route}) => {
                 numberOfLines={10}
                 placeholder="¿Cuál es su emergencia?"
                 onChangeText={(val) => setDescripcion(val)}
-
             />
 
             <Button style={styles.ActBoton} mode="contained" onPress={() => navigation.navigate('Form2', {

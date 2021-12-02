@@ -10,6 +10,7 @@ import MyProblems from "./screens/MyProblems";
 import ReadProblem from "./screens/ReadProblem";
 import ReadComments from "./screens/ReadComments";
 import UpdateProblem from "./screens/UpdateProblem";
+import UpdateComment from "./screens/UpdateComment";
 import DeleteProblem from "./screens/DeleteProblem";
 
 const Stack = createNativeStackNavigator();
@@ -27,6 +28,7 @@ export default function App() {
                 <Stack.Screen name="ReadProblem" component={ReadProblem} options={{headerShown: false}}/>
                 <Stack.Screen name="ReadComments" component={ReadComments} options={{headerShown: false}}/>
                 <Stack.Screen name="UpdateProblem" component={UpdateProblem} options={{headerShown: false}}/>
+                <Stack.Screen name="UpdateComment" component={UpdateComment} options={{headerShown: false}}/>
                 <Stack.Screen name="DeleteProblem" component={DeleteProblem} options={{headerShown: false}}/>
             </Stack.Navigator>
         </NavigationContainer>

@@ -24,7 +24,7 @@ const ReadProblem = ({navigation,route}) => {
             </Appbar.Header>
             
             <Text style={styles.title}>
-                Eliminar problema 
+                Eliminar Reporte 
             </Text>
 
             <View style={styles.titleImage}>
