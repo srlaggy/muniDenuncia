@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import Steps from '../components/wizard/Steps';
 import StepsState from '../components/wizard/context/stepsState';
-import StepsContext from '../components/wizard/context/stepsContext';
-import Form from "./Form";
 import { StyleSheet, SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import { Button, Appbar } from 'react-native-paper';

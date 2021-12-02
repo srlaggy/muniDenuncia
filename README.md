@@ -14,6 +14,7 @@ Se necesita de `yarn` y `npm` para probar el proyecto.
 - `yarn add @react-navigation/native-stack`
 - `yarn add react-native-paper`
 - `npm install react-native-super-grid`
+- `npm i react-native-awesome-alerts --save`
 
 Nota: Si cuenta solamente con `yarn` o `npm`, puede transformar los comandos al gestor de paquetes con el que cuenta.
 

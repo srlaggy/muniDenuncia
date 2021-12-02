@@ -1,11 +1,24 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Text, SafeAreaView, StyleSheet, TextInput, View, Image} from "react-native";
 import { Button, Appbar } from 'react-native-paper';
 import Steps from '../components/wizard/Steps';
 import StepsState from '../components/wizard/context/stepsState';
+import AwesomeAlert from 'react-native-awesome-alerts';
+import { setStatusBarNetworkActivityIndicatorVisible } from "expo-status-bar";
 
 const Form2 = ({navigation, route}) => {
     const { itemFunction2, itemImage2, titulo2, descripcion2} = route.params;
+    const [alert, setAlert] = useState(false);
+
+    const showAlert = () => {
+        setAlert(true);
+    }
+
+    const hideAlert = () => {
+        setAlert(false);
+        navigation.navigate('Actions');
+    }
+
     return (
         <SafeAreaView style={styles.fondo}>
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
@@ -33,10 +46,22 @@ const Form2 = ({navigation, route}) => {
                 <Button style={[styles.ActBoton, styles.cancel]} mode="contained" onPress={() => navigation.navigate('Form', {itemFunction: itemFunction2, itemImage: itemImage2})}>
                     <Text style={{color: "#7A7777"}}>Cancelar</Text>
                 </Button>
-                <Button style={styles.ActBoton} mode="contained" onPress={() => alert('Publicado')}>
+                <Button style={styles.ActBoton} mode="contained" onPress={showAlert}>
                     Confirmar
                 </Button>
             </View>
+
+            <AwesomeAlert
+                show={alert}
+                showProgress={true}
+                title="Reporte Publicado"
+                closeOnTouchOutside={true}
+                showConfirmButton={true}
+                confirmText="Ir al inicio"
+                confirmButtonColor="#024772"
+                onConfirmPressed={hideAlert}
+                onDismiss={hideAlert}
+            />
         </SafeAreaView>
     );
 };
@@ -84,11 +109,12 @@ const styles = StyleSheet.create({
         padding: 10,
         marginHorizontal: '10%',
         height: '10%',
-        backgroundColor: '#FFFF',
+        backgroundColor: '#ECECEC',
         marginBottom: 15,
         fontSize: 17,
         borderWidth: 1,
         borderColor: "#BFBFBF",
+        color: "#6A6A6A",
     },
     emergencia2: {
         height: "25%",
