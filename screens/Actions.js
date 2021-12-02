@@ -14,7 +14,7 @@ const Actions = ({navigation}) => {
             <Button style={styles.ActBoton} mode="contained" onPress={() => navigation.navigate('Functions')}>
                 Ingresa Problema
             </Button>
-            <Button style={styles.ActBoton} mode="contained" onPress={() => alert('Disponible en la próxima implementación')}>
+            <Button style={styles.ActBoton} mode="contained" onPress={() => navigation.navigate('MyProblems')}>
                 Mis reportes
             </Button>
         </View>
