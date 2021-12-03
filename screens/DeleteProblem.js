@@ -6,6 +6,7 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 const ReadProblem = ({navigation,route}) => {
     const { icon, titleFunction, title, Description} = route.params;
     const [alert, setAlert] = useState(false);
+    const [deleted, setDeleted] = useState(false);
 
     const showAlert = () => {
         setAlert(true);
@@ -13,7 +14,16 @@ const ReadProblem = ({navigation,route}) => {
 
     const hideAlert = () => {
         setAlert(false);
-        navigation.navigate('Actions');
+    }
+
+    const endAlert = () => {
+        setAlert(false);
+        //navigation.navigate('Actions');
+        setDeleted(true);
+
+        setTimeout(() => {
+            navigation.navigate('Actions');
+        }, 2000);
     }
 
     return (
@@ -36,25 +46,32 @@ const ReadProblem = ({navigation,route}) => {
             <Text style={[styles.emergencia, styles.emergencia2]}>{Description}</Text>
 
             <View style={styles.buttonContainer}>
-                <Button style={[styles.ActBoton, styles.cancel]} mode="contained" onPress={() => navigation.navigate('MyProblems')}>
-                    <Text style={{color: "#7A7777"}}>Cancelar</Text>
-                </Button>
-                <Button style={styles.ActBoton} mode="contained" onPress={showAlert}>
-                    Confirmar
+                <Button id="buttonDelete" style={styles.boton} disabled={deleted} mode="contained" onPress={showAlert}>
+                    Eliminar
                 </Button>
             </View>
 
             <AwesomeAlert
-                show={alert}
-                showProgress={true}
-                title="Reporte Eliminado"
-                closeOnTouchOutside={true}
-                showConfirmButton={true}
-                confirmText="Ir al inicio"
-                confirmButtonColor="#024772"
-                onConfirmPressed={hideAlert}
-                onDismiss={hideAlert}
-            />
+                    show={alert}
+                    showProgress={true}
+                    title="¿Estas seguro?"
+                    closeOnTouchOutside={true}
+                    showConfirmButton={true}
+                    showCancelButton={true}
+                    confirmText="Si"
+                    cancelText="No"
+                    confirmButtonColor="#024772"
+                    onConfirmPressed={endAlert}
+                    onCancelPressed={hideAlert}
+                    onDismiss={hideAlert}
+                />
+
+            {deleted &&
+                <View style={{alignItems: 'center', flex:1}}>
+                    <Text style={styles.chao}>¡Reporte eliminado!</Text>
+                </View>
+            }
+
         </SafeAreaView>
     );
 };
@@ -108,6 +125,21 @@ const styles = StyleSheet.create({
     cancel: {
         backgroundColor: "#FFFF",
         borderColor: "#BBBBBB",
+    },
+    boton: {
+        alignSelf: "center",
+        borderRadius: 10,
+        paddingVertical: 15,
+        width: '40%',
+        backgroundColor: "#024772",
+        marginVertical: 10,
+    },
+    chao: {
+        fontSize: 28,
+        textAlign: "center",
+        marginTop: "5%",
+        marginBottom: "2%",
+        color: "#E6AF80"
     }
 });
 
