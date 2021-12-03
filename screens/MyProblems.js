@@ -19,7 +19,8 @@ const MyProblems = ({navigation}) => {
                     titleFunction: "Emergencia de Seguridad",
                     title: "Disturbios",
                     Description: "Discusiones en la calle Viana entre transeúntes todas las noches",
-                    StateProblem: "En proceso"
+                    StateProblem: "En proceso",
+                    comments: ["Problema en estudio", "Problema asignado"],
                     })}>
                     Disturbios
                 </Button>
@@ -51,7 +52,8 @@ const MyProblems = ({navigation}) => {
                     titleFunction: "Emergencia de Seguridad",
                     title: "Robos constantes",
                     Description: "Transeúntes roban constantemente dentro de los autos en la calle 5 oriente.",
-                    StateProblem: "Solucionado"
+                    StateProblem: "Solucionado",
+                    comments: ["Problema en estudio", "Problema asignado", "Problema solucionado"],
                     })}>
                     Robos constantes
                 </Button>

@@ -29,7 +29,7 @@ const ReadProblem = ({navigation,route}) => {
                 Estado: {StateProblem}
             </Text>
 
-            <Button style={styles.boton} mode="contained" onPress={() => navigation.navigate('UpdateComment', route.params)}>
+            <Button style={styles.boton} mode="contained" onPress={() => navigation.navigate('ReadComments', route.params)}>
                 Leer comentarios
             </Button>
         </View>
