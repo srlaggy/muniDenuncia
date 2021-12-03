@@ -1,17 +1,20 @@
 import React from "react";
-import {Text, View, StyleSheet, Image} from "react-native";
+import {Text, View, StyleSheet, Image, TouchableOpacity} from "react-native";
 import { Button, Appbar } from 'react-native-paper';
 
 const MyProblems = ({navigation}) => {
     const data = require("../data/reportes.json");
     return (
         <View style={styles.fondo}>
+
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
                 <Appbar.BackAction onPress={() => navigation.navigate('Actions')} />
             </Appbar.Header>
+            
             <Text style={styles.title}>
                 Mis reportes  
             </Text>
+
             {/* Primer Problema */}
             <View style={styles.rowproblems}>
                 {/* ReadProblem */}
@@ -21,17 +24,17 @@ const MyProblems = ({navigation}) => {
                     Disturbios
                 </Button>
                 {/* UpdateProblem */}
-                <Button onPress={() => navigation.navigate('UpdateProblem', {
+                <TouchableOpacity style={styles.ActBotonIcon} onPress={() => navigation.navigate('UpdateProblem', {
                     ...data.reporte1, icon: require("../icons/security.png")
                     })}>
-                    <Image style={{margin: "5%"}} source={require("../icons/change.png")}/>
-                </Button>
+                    <Image source={require("../icons/change2.png")}/>
+                </TouchableOpacity>
                 {/* DeleteProblem */}
-                <Button onPress={() => navigation.navigate('DeleteProblem', {
+                <TouchableOpacity style={styles.ActBotonIcon} onPress={() => navigation.navigate('DeleteProblem', {
                     ...data.reporte1, icon: require("../icons/security.png")
                     })}>
-                    <Image style={{margin: "5%"}} source={require("../icons/delete.png")}/>
-                </Button>
+                    <Image source={require("../icons/delete2.png")}/>
+                </TouchableOpacity>
             </View>
 
             {/* Segundo Problema */}
@@ -43,17 +46,17 @@ const MyProblems = ({navigation}) => {
                     Robos constantes
                 </Button>
                 {/* UpdateProblem */}
-                <Button onPress={() => navigation.navigate('UpdateProblem', {
+                <TouchableOpacity style={styles.ActBotonIcon} onPress={() => navigation.navigate('UpdateProblem', {
                     ...data.reporte2, icon: require("../icons/security.png")
                     })}>
-                    <Image style={{margin: "5%"}} source={require("../icons/change.png")}/>
-                </Button>
+                    <Image source={require("../icons/change2.png")}/>
+                </TouchableOpacity>
                 {/* DeleteProblem */}
-                <Button onPress={() => navigation.navigate('DeleteProblem', {
+                <TouchableOpacity style={styles.ActBotonIcon} onPress={() => navigation.navigate('DeleteProblem', {
                     ...data.reporte2, icon: require("../icons/security.png")
                     })}>
-                    <Image style={{margin: "5%"}} source={require("../icons/delete.png")}/>
-                </Button>
+                    <Image source={require("../icons/delete2.png")}/>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -69,7 +72,7 @@ const styles = StyleSheet.create({
         color: "black",
         textAlign: "center",
         marginTop: "25%",
-        marginBottom: "15%",
+        marginBottom: "10%",
     },
     ActBoton: {
         alignSelf: 'center',
@@ -77,12 +80,21 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         width: '55%',
         backgroundColor: "#E6AF80",
-        marginVertical: 10,
+        marginTop: 15,
 
     },
     rowproblems: {
-        marginLeft: "5%",
+        alignContent: "center",
+        marginLeft: "10%",
         flexDirection: "row",
+    },
+    ActBotonIcon: {
+        alignSelf: 'center',
+        borderRadius: 10,
+        paddingVertical: 15,
+        width: '10%',
+        marginTop: 15,
+        marginLeft: "5%",
     },
 });
 
