@@ -4,9 +4,9 @@ import { Button, Appbar } from 'react-native-paper';
 import AwesomeAlert from 'react-native-awesome-alerts';
 
 const UpdateComment = ({navigation, route}) => {
-    const {icon, titleFunction, title, Description} = route.params;
     const [comment, setComment] = useState("");
     const [alert, setAlert] = useState(false);
+    const [actualizado, setActualizado] = useState(false);
 
     const showAlert = () => {
         setAlert(true);
@@ -18,7 +18,11 @@ const UpdateComment = ({navigation, route}) => {
 
     const endAlert = () => {
         setAlert(false);
-        navigation.navigate('Actions');
+        setActualizado(true);
+
+        setTimeout(() => {
+            navigation.navigate('Actions');
+        }, 2000);
     }
 
     return (
@@ -58,6 +62,12 @@ const UpdateComment = ({navigation, route}) => {
                     onCancelPressed={hideAlert}
                     onDismiss={hideAlert}
                 />
+
+                {actualizado &&
+                    <View style={{alignItems: 'center'}}>
+                        <Text style={styles.chao}>¡Comentario actualizado!</Text>
+                    </View>
+                }
             </View>
         </View>
     );
@@ -103,6 +113,13 @@ const styles = StyleSheet.create({
         width: '40%',
         backgroundColor: "#024772",
         marginVertical: 10,
+    },
+    chao: {
+        fontSize: 28,
+        textAlign: "center",
+        marginTop: "5%",
+        marginBottom: "2%",
+        color: "#E6AF80"
     },
 });
 
