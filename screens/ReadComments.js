@@ -4,7 +4,6 @@ import { Button, Appbar } from 'react-native-paper';
 
 const ReadComments = ({navigation, route}) => {
     const {title, comments} = route.params;
-    const listItems = comments.map((comment) =>  <Text style={styles.textcontainer2}>{comment}</Text>);
     return (
         <View style={styles.fondo}>
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
@@ -20,7 +19,11 @@ const ReadComments = ({navigation, route}) => {
             </View>
 
             <View>
-            {listItems}
+                {comments.map((comment, i) =>
+                    <Text style={styles.textcontainer2} key={i}>
+                        {comment}
+                    </Text>
+                )}
             </View>
 
         </View>

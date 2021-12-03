@@ -3,10 +3,11 @@ import {Text, View, StyleSheet, Image} from "react-native";
 import { Button, Appbar } from 'react-native-paper';
 
 const MyProblems = ({navigation}) => {
+    const data = require("../data/reportes.json");
     return (
         <View style={styles.fondo}>
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
-                <Appbar.BackAction onPress={() => navigation.navigate('Home')} />
+                <Appbar.BackAction onPress={() => navigation.navigate('Actions')} />
             </Appbar.Header>
             <Text style={styles.title}>
                 Mis reportes  
@@ -15,30 +16,19 @@ const MyProblems = ({navigation}) => {
             <View style={styles.rowproblems}>
                 {/* ReadProblem */}
                 <Button style={styles.ActBoton} mode="contained" onPress={() => navigation.navigate('ReadProblem', {
-                    icon: require("../icons/security.png"), 
-                    titleFunction: "Emergencia de Seguridad",
-                    title: "Disturbios",
-                    Description: "Discusiones en la calle Viana entre transeúntes todas las noches",
-                    StateProblem: "En proceso",
-                    comments: ["Problema en estudio", "Problema asignado"],
+                    ...data.reporte1, icon: require("../icons/security.png")
                     })}>
                     Disturbios
                 </Button>
                 {/* UpdateProblem */}
                 <Button onPress={() => navigation.navigate('UpdateProblem', {
-                    icon: require("../icons/security.png"), 
-                    titleFunction: "Emergencia de Seguridad",
-                    title: "Disturbios",
-                    Description: "Discusiones en la calle Viana entre transeúntes todas las noches",
+                    ...data.reporte1, icon: require("../icons/security.png")
                     })}>
                     <Image style={{margin: "5%"}} source={require("../icons/change.png")}/>
                 </Button>
                 {/* DeleteProblem */}
                 <Button onPress={() => navigation.navigate('DeleteProblem', {
-                    icon: require("../icons/security.png"), 
-                    titleFunction: "Emergencia de Seguridad",
-                    title: "Disturbios",
-                    Description: "Discusiones en la calle Viana entre transeúntes todas las noches",
+                    ...data.reporte1, icon: require("../icons/security.png")
                     })}>
                     <Image style={{margin: "5%"}} source={require("../icons/delete.png")}/>
                 </Button>
@@ -48,30 +38,19 @@ const MyProblems = ({navigation}) => {
             <View style={styles.rowproblems}>
                 {/* ReadProblem */}
                 <Button style={styles.ActBoton} mode="contained" onPress={() => navigation.navigate('ReadProblem', {
-                    icon: require("../icons/security.png"), 
-                    titleFunction: "Emergencia de Seguridad",
-                    title: "Robos constantes",
-                    Description: "Transeúntes roban constantemente dentro de los autos en la calle 5 oriente.",
-                    StateProblem: "Solucionado",
-                    comments: ["Problema en estudio", "Problema asignado", "Problema solucionado"],
+                    ...data.reporte2, icon: require("../icons/security.png")
                     })}>
                     Robos constantes
                 </Button>
                 {/* UpdateProblem */}
                 <Button onPress={() => navigation.navigate('UpdateProblem', {
-                    icon: require("../icons/security.png"), 
-                    titleFunction: "Emergencia de Seguridad",
-                    title: "Robos constantes",
-                    Description: "Transeúntes roban constantemente dentro de los autos en la calle 5 oriente.",
+                    ...data.reporte2, icon: require("../icons/security.png")
                     })}>
                     <Image style={{margin: "5%"}} source={require("../icons/change.png")}/>
                 </Button>
                 {/* DeleteProblem */}
                 <Button onPress={() => navigation.navigate('DeleteProblem', {
-                    icon: require("../icons/security.png"), 
-                    titleFunction: "Emergencia de Seguridad",
-                    title: "Robos constantes",
-                    Description: "Transeúntes roban constantemente dentro de los autos en la calle 5 oriente.",
+                    ...data.reporte2, icon: require("../icons/security.png")
                     })}>
                     <Image style={{margin: "5%"}} source={require("../icons/delete.png")}/>
                 </Button>
