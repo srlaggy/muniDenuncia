@@ -8,7 +8,7 @@ const ReadComments = ({navigation, route}) => {
     return (
         <View style={styles.fondo}>
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
-                <Appbar.BackAction onPress={() => navigation.navigate('ReadProblem')} />
+                <Appbar.BackAction onPress={() => navigation.navigate('ReadProblem', route.params)} />
             </Appbar.Header>
 
             <Text style={styles.subtitle}>
