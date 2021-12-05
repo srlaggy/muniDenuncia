@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Text, View, StyleSheet, TextInput} from "react-native";
 import { Button, Appbar } from 'react-native-paper';
 import AwesomeAlert from 'react-native-awesome-alerts';
+import {LinearGradient} from 'expo-linear-gradient';
 
 const UpdateComment = ({navigation, route}) => {
     const [comment, setComment] = useState("");
@@ -26,7 +27,12 @@ const UpdateComment = ({navigation, route}) => {
     }
 
     return (
-        <View style={styles.fondo}>
+        <LinearGradient
+            colors={['#c4e5f5', '#81cbee', '#0982bd']}
+            style={styles.fondo}
+            start={{ x: 0.3, y: 0.4 }}
+            end={{ x: 1, y: 1 }}
+        >
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
                 <Appbar.BackAction onPress={() => navigation.navigate('UpdateProblem', route.params)} />
             </Appbar.Header>
@@ -44,9 +50,11 @@ const UpdateComment = ({navigation, route}) => {
                     onChangeText={(val) => setComment(val)}
                 />
 
-                <Button style={styles.boton} mode="contained" onPress={showAlert}>
-                    Publicar
-                </Button>
+                {!actualizado &&
+                    <Button style={styles.boton} mode="contained" onPress={showAlert}>
+                        Publicar
+                    </Button>
+                }
 
                 <AwesomeAlert
                     show={alert}
@@ -64,12 +72,12 @@ const UpdateComment = ({navigation, route}) => {
                 />
 
                 {actualizado &&
-                    <View style={{alignItems: 'center'}}>
-                        <Text style={styles.chao}>¡Comentario actualizado!</Text>
+                    <View style={styles.containerNoti}>
+                        <Text style={styles.textoNoti}>¡Comentario actualizado!</Text>
                     </View>
                 }
             </View>
-        </View>
+        </LinearGradient>
     );
 };
 
@@ -105,6 +113,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "#BFBFBF",
         height: "40%",
+        borderRadius: 8
     },
     boton: {
         alignSelf: "center",
@@ -114,13 +123,19 @@ const styles = StyleSheet.create({
         backgroundColor: "#024772",
         marginVertical: 10,
     },
-    chao: {
-        fontSize: 28,
-        textAlign: "center",
-        marginTop: "5%",
-        marginBottom: "2%",
-        color: "#E6AF80"
+    containerNoti: {
+        marginVertical: 10,
+        // borderWidth: 1,
+        marginHorizontal: "10%",
+        paddingVertical: "4%",
+        borderRadius: 20,
+        backgroundColor: "rgba(206,206,208,0.7)",
     },
+    textoNoti: {
+        fontSize: 20,
+        textAlign: "center",
+        color: "#5D5D5D",
+    }
 });
 
 export default UpdateComment;

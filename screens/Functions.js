@@ -4,6 +4,7 @@ import StepsState from '../components/wizard/context/stepsState';
 import { StyleSheet, SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import { Button, Appbar } from 'react-native-paper';
+import {LinearGradient} from 'expo-linear-gradient';
 
 const Function = ({navigation}) => {
     const [items, setItems] = React.useState([
@@ -14,7 +15,12 @@ const Function = ({navigation}) => {
     ]);
 
     return (
-        <View style={styles.fondo}>
+        <LinearGradient
+            colors={['#c4e5f5', '#81cbee', '#0982bd']}
+            style={styles.fondo}
+            start={{ x: 0.3, y: 0.4 }}
+            end={{ x: 1, y: 1 }}
+        >
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
                 <Appbar.BackAction onPress={() => navigation.navigate('Actions')} />
                 {/* <Appbar.Content title="Reportes"/> */}
@@ -51,19 +57,19 @@ const Function = ({navigation}) => {
                     </TouchableOpacity>
                 )}
             />
-        </View>
+        </LinearGradient>
     );
 }
 
 const routes = [
     {
-        title: 'Categoria',
+        title: 'Categoría',
     },
     {
-        title: 'Descripcion',
+        title: 'Descripción',
     },
     {
-        title: 'Confirmacion',
+        title: 'Confirmación',
     },
 ];
 

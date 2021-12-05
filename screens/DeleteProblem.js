@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Text, SafeAreaView, StyleSheet, TextInput, View, Image} from "react-native";
 import { Button, Appbar } from 'react-native-paper';
 import AwesomeAlert from 'react-native-awesome-alerts';
+import {LinearGradient} from 'expo-linear-gradient';
 
 const ReadProblem = ({navigation,route}) => {
     const { icon, titleFunction, title, Description} = route.params;
@@ -27,7 +28,12 @@ const ReadProblem = ({navigation,route}) => {
     }
 
     return (
-        <SafeAreaView style={styles.fondo}>
+        <LinearGradient
+            colors={['#c4e5f5', '#81cbee', '#0982bd']}
+            style={styles.fondo}
+            start={{ x: 0.3, y: 0.4 }}
+            end={{ x: 1, y: 1 }}
+        >
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
                 <Appbar.BackAction onPress={() => navigation.navigate('MyProblems')} />
                 {/* <Appbar.Content title="Formulario"/> */}
@@ -45,34 +51,36 @@ const ReadProblem = ({navigation,route}) => {
             <Text style={styles.emergencia} >{title}</Text>
             <Text style={[styles.emergencia, styles.emergencia2]}>{Description}</Text>
 
-            <View style={styles.buttonContainer}>
-                <Button id="buttonDelete" style={styles.boton} disabled={deleted} mode="contained" onPress={showAlert}>
-                    Eliminar
-                </Button>
-            </View>
-
-            <AwesomeAlert
-                    show={alert}
-                    showProgress={true}
-                    title="¿Estas seguro?"
-                    closeOnTouchOutside={true}
-                    showConfirmButton={true}
-                    showCancelButton={true}
-                    confirmText="Si"
-                    cancelText="No"
-                    confirmButtonColor="#024772"
-                    onConfirmPressed={endAlert}
-                    onCancelPressed={hideAlert}
-                    onDismiss={hideAlert}
-                />
-
-            {deleted &&
-                <View style={{alignItems: 'center', flex:1}}>
-                    <Text style={styles.chao}>¡Reporte eliminado!</Text>
+            {!deleted &&
+                <View style={styles.buttonContainer}>
+                    <Button id="buttonDelete" style={styles.boton} disabled={deleted} mode="contained" onPress={showAlert}>
+                        Eliminar
+                    </Button>
                 </View>
             }
 
-        </SafeAreaView>
+            <AwesomeAlert
+                show={alert}
+                showProgress={true}
+                title="¿Estas seguro?"
+                closeOnTouchOutside={true}
+                showConfirmButton={true}
+                showCancelButton={true}
+                confirmText="Si"
+                cancelText="No"
+                confirmButtonColor="#024772"
+                onConfirmPressed={endAlert}
+                onCancelPressed={hideAlert}
+                onDismiss={hideAlert}
+            />
+
+            {deleted &&
+                <View style={styles.containerNoti}>
+                    <Text style={styles.textoNoti}>¡Reporte eliminado!</Text>
+                </View>
+            }
+
+    </LinearGradient>
     );
 };
 
@@ -113,6 +121,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "#BFBFBF",
         color: "#6A6A6A",
+        borderRadius: 8
     },
     emergencia2: {
         height: "25%",
@@ -134,12 +143,18 @@ const styles = StyleSheet.create({
         backgroundColor: "#024772",
         marginVertical: 10,
     },
-    chao: {
-        fontSize: 28,
+    containerNoti: {
+        marginVertical: 10,
+        // borderWidth: 1,
+        marginHorizontal: "17%",
+        paddingVertical: "3%",
+        borderRadius: 20,
+        backgroundColor: "rgba(206,206,208,0.7)",
+    },
+    textoNoti: {
+        fontSize: 20,
         textAlign: "center",
-        marginTop: "5%",
-        marginBottom: "2%",
-        color: "#E6AF80"
+        color: "#5D5D5D",
     }
 });
 

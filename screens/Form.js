@@ -3,13 +3,19 @@ import {Text, View, StyleSheet, TextInput, Image} from "react-native";
 import { Button, Appbar } from 'react-native-paper';
 import Steps from '../components/wizard/Steps';
 import StepsState from '../components/wizard/context/stepsState';
+import {LinearGradient} from 'expo-linear-gradient';
 
 const Form = ({navigation, route}) => {
     const { itemFunction, itemImage } = route.params;
     const [titulo, setTitulo] = useState();
     const [descripcion, setDescripcion] = useState('');
     return (
-        <View style={styles.fondo}>
+        <LinearGradient
+            colors={['#c4e5f5', '#81cbee', '#0982bd']}
+            style={styles.fondo}
+            start={{ x: 0.3, y: 0.4 }}
+            end={{ x: 1, y: 1 }}
+        >
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
                 <Appbar.BackAction onPress={() => navigation.navigate('Functions')} />
                 {/* <Appbar.Content title="Formulario"/> */}
@@ -50,19 +56,19 @@ const Form = ({navigation, route}) => {
                 })}>
                 Publicar
             </Button>
-        </View>
+        </LinearGradient>
     );
 };
 
 const routes = [
     {
-        title: 'Categoria',
+        title: 'Categoría',
     },
     {
-        title: 'Descripcion',
+        title: 'Descripción',
     },
     {
-        title: 'Confirmacion',
+        title: 'Confirmación',
     },
 ];
 
@@ -83,12 +89,11 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
     ActBoton: {
-        alignSelf: 'flex-end',
+        alignSelf: 'center',
         borderRadius: 10,
         paddingVertical: 15,
         width: '40%',
         backgroundColor: "#024772",
-        marginRight: '10%',
         marginVertical: 10,
     },
     emergencia: {
@@ -100,6 +105,7 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         borderWidth: 1,
         borderColor: "#BFBFBF",
+        borderRadius: 8
     },
     emergencia2: {
         height: "25%",

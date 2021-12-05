@@ -4,6 +4,7 @@ import { Button, Appbar } from 'react-native-paper';
 import Steps from '../components/wizard/Steps';
 import StepsState from '../components/wizard/context/stepsState';
 import AwesomeAlert from 'react-native-awesome-alerts';
+import {LinearGradient} from 'expo-linear-gradient';
 
 const Form2 = ({navigation, route}) => {
     const { itemFunction2, itemImage2, titulo2, descripcion2} = route.params;
@@ -19,7 +20,12 @@ const Form2 = ({navigation, route}) => {
     }
 
     return (
-        <SafeAreaView style={styles.fondo}>
+        <LinearGradient
+            colors={['#c4e5f5', '#81cbee', '#0982bd']}
+            style={styles.fondo}
+            start={{ x: 0.3, y: 0.4 }}
+            end={{ x: 1, y: 1 }}
+        >
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
                 <Appbar.BackAction onPress={() => navigation.navigate('Form', {itemFunction: itemFunction2, itemImage: itemImage2})} />
                 {/* <Appbar.Content title="Formulario"/> */}
@@ -61,19 +67,19 @@ const Form2 = ({navigation, route}) => {
                 onConfirmPressed={hideAlert}
                 onDismiss={hideAlert}
             />
-        </SafeAreaView>
+        </LinearGradient>
     );
 };
 
 const routes = [
     {
-        title: 'Categoria',
+        title: 'Categoría',
     },
     {
-        title: 'Descripcion',
+        title: 'Descripción',
     },
     {
-        title: 'Confirmacion',
+        title: 'Confirmación',
     },
 ];
 
@@ -114,6 +120,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "#BFBFBF",
         color: "#6A6A6A",
+        borderRadius: 8
     },
     emergencia2: {
         height: "25%",

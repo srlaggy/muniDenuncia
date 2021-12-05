@@ -1,10 +1,16 @@
 import React from "react";
 import {Text, View, StyleSheet} from "react-native";
 import { Button, Appbar } from 'react-native-paper';
+import {LinearGradient} from 'expo-linear-gradient';
 
 const Actions = ({navigation}) => {
     return (
-        <View style={styles.fondo}>
+        <LinearGradient
+            colors={['#c4e5f5', '#81cbee', '#0982bd']}
+            style={styles.fondo}
+            start={{ x: 0.3, y: 0.4 }}
+            end={{ x: 1, y: 1 }}
+        >
             <Appbar.Header style={{backgroundColor: "#C4E5F5", elevation: 0, shadowOpacity: 0}}>
                 <Appbar.BackAction onPress={() => navigation.navigate('Home')} />
             </Appbar.Header>
@@ -17,7 +23,7 @@ const Actions = ({navigation}) => {
             <Button style={styles.ActBoton} mode="contained" onPress={() => navigation.navigate('MyProblems')}>
                 Mis reportes
             </Button>
-        </View>
+        </LinearGradient>
     );
 };
 

@@ -1,10 +1,16 @@
 import React from "react";
 import {Text, View, StyleSheet} from "react-native";
 import { Button, Avatar } from 'react-native-paper';
+import {LinearGradient} from 'expo-linear-gradient';
 
 const Start = ({navigation}) => {
     return (
-        <View style={styles.fondo}>
+        <LinearGradient
+            colors={['#c4e5f5', '#81cbee', '#0982bd']}
+            style={styles.fondo}
+            start={{ x: 0.3, y: 0.4 }}
+            end={{ x: 1, y: 1 }}
+        >
             <Text style={styles.title}>
                 MuniAyuda
             </Text>
@@ -16,9 +22,11 @@ const Start = ({navigation}) => {
                 Marta Muñoz
             </Text>
             <Button style={styles.boton} mode="contained" onPress={() => navigation.navigate('Actions')}>
-                Ingresar
+                <Text style={{fontSize: 18}}>
+                    Ingresar
+                </Text>
             </Button>
-        </View>
+        </LinearGradient>
     );
 };
 
@@ -37,7 +45,6 @@ const styles = StyleSheet.create({
         marginBottom: "5%",
     },
     fondo: {
-        backgroundColor: "#C4E5F5",
         flex: 1,
         alignItems: "center",
     },

@@ -6,8 +6,8 @@
         "Description": "Discusiones en la calle Viana entre transeúntes todas las noches",
         "StateProblem": "En proceso",
         "comments": [
-            "Problema en estudio",
-            "Problema asignado"
+            "#1 Problema en estudio",
+            "#2 Problema asignado"
         ]
     },
     "reporte2": {
@@ -17,9 +17,9 @@
         "Description": "Transeúntes roban constantemente dentro de los autos en la calle 5 oriente.",
         "StateProblem": "Solucionado",
         "comments": [
-            "Problema en estudio",
-            "Problema asignado",
-            "Problema solucionado"
+            "#1 Problema en estudio",
+            "#2 Problema asignado",
+            "#3 Problema solucionado"
         ]
     }
 }
