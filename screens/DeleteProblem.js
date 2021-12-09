@@ -61,7 +61,7 @@ const ReadProblem = ({navigation,route}) => {
 
             <AwesomeAlert
                 show={alert}
-                showProgress={true}
+                // showProgress={true}
                 title="¿Estas seguro?"
                 closeOnTouchOutside={true}
                 showConfirmButton={true}

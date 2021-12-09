@@ -58,7 +58,7 @@ const Form2 = ({navigation, route}) => {
 
             <AwesomeAlert
                 show={alert}
-                showProgress={true}
+                // showProgress={true}
                 title="Reporte Publicado"
                 closeOnTouchOutside={true}
                 showConfirmButton={true}
